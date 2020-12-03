@@ -3,9 +3,12 @@ use std::env;
 
 use crate::day::Day;
 
+mod file;
+
 mod day;
 mod day1;
 mod day2;
+mod day3;
 
 fn main() {
     println!("Advent of Code 2020");
@@ -31,6 +34,7 @@ fn get_day (day_select:&str) -> Option<Box<dyn Day>> {
     match day_select {
         "day1" => Some(Box::new(day1::Day1 {})),
         "day2" => Some(Box::new(day2::Day2 {})),
+        "day3" => Some(Box::new(day3::Day3 {})),
         _ => None,
     }
 }
