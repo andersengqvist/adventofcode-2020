@@ -1,6 +1,7 @@
 use crate::day;
 use crate::file;
 use std::collections::HashMap;
+use lazy_static::lazy_static;
 use regex::Regex;
 
 pub struct Day4 {
@@ -148,13 +149,16 @@ fn is_valid_hgt(hgt: &Option<String>) ->  bool {
         .is_some()
 }
 
+lazy_static! {
+    static ref RE_HCL: Regex = Regex::new("#[0-9a-f]{6}$").unwrap();
+}
+
 // hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
 fn is_valid_hcl(hcl: &Option<String>) -> bool {
     hcl
         .as_ref()
         .filter(|&s| -> bool {
-            let re  = Regex::new("#[0-9a-f]{6}$").unwrap();
-            re.is_match(s)
+            RE_HCL.is_match(s)
         })
         .is_some()
 }
@@ -175,13 +179,16 @@ fn is_valid_ecl(ecl: &Option<String>) ->  bool {
         .is_some()
 }
 
+lazy_static! {
+    static ref RE_PID: Regex = Regex::new("^\\d{9}$").unwrap();
+}
+
 // pid (Passport ID) - a nine-digit number, including leading zeroes.
 fn is_valid_pid(pid: &Option<String>) -> bool {
     pid
         .as_ref()
         .filter(|&s| -> bool {
-            let re  = Regex::new("^\\d{9}$").unwrap();
-            re.is_match(s)
+            RE_PID.is_match(s)
         })
         .is_some()
 }
