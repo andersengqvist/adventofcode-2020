@@ -5,19 +5,18 @@ pub struct Day3 {
 
 }
 
-struct Map {
-    map: Vec<String>,
+struct Map<'a> {
+    map: &'a Vec<String>,
     x: usize,
     y: usize
 }
 
-
-impl Map {
-    fn new(the_map: Vec<String>) -> Map {
+impl<'a> Map<'a> {
+    fn new(the_map: &'a Vec<String>) -> Map {
         Map { map: the_map, x: 0, y: 0 }
     }
 
-    fn moove(self: &mut Map, x: usize, y: usize) {
+    fn moove(&mut self, x: usize, y: usize) {
         if self.y < self.map.len() {
             self.x += x;
             self.y += y;
@@ -44,7 +43,7 @@ impl day::Day for Day3 {
     fn puzzle1(&self) {
         println!("Day 3, puzzle 1");
 
-        let hits = count_hits_1(file::lines("res/day3_1.txt"));
+        let hits = count_hits_1(&file::lines("res/day3_1.txt"));
 
         println!("{}", hits);
     }
@@ -52,14 +51,14 @@ impl day::Day for Day3 {
     fn puzzle2(&self) {
         println!("Day 3, puzzle 2");
 
-        let hits = count_hits_2(file::lines("res/day3_1.txt"));
+        let hits = count_hits_2(&file::lines("res/day3_1.txt"));
 
         println!("{}", hits);
     }
 
 }
 
-fn count_hits(l: Vec<String>, x: usize, y: usize) -> u64 {
+fn count_hits(l: &Vec<String>, x: usize, y: usize) -> u64 {
     let mut map = Map::new(l);
 
     let mut hits = 0;
@@ -75,16 +74,16 @@ fn count_hits(l: Vec<String>, x: usize, y: usize) -> u64 {
     return hits;
 }
 
-fn count_hits_1(l: Vec<String>) -> u64 {
+fn count_hits_1(l: &Vec<String>) -> u64 {
     return count_hits(l, 3, 1);
 }
 
-fn count_hits_2(l: Vec<String>) -> u64 {
-    return count_hits(l.clone(), 1, 1)
-        * count_hits(l.clone(), 3, 1)
-        * count_hits(l.clone(), 5, 1)
-        * count_hits(l.clone(), 7, 1)
-        * count_hits(l.clone(), 1, 2);
+fn count_hits_2(l: &Vec<String>) -> u64 {
+    return count_hits(l, 1, 1)
+        * count_hits(l, 3, 1)
+        * count_hits(l, 5, 1)
+        * count_hits(l, 7, 1)
+        * count_hits(l, 1, 2);
 }
 
 #[cfg(test)]
@@ -94,7 +93,7 @@ mod tests {
     #[test]
     fn test_count_hits_1() {
         assert_eq!(
-            count_hits_1(vec![
+            count_hits_1(&vec![
                 "..##.......".to_string(),
                 "#...#...#..".to_string(),
                 ".#....#..#.".to_string(),
@@ -114,7 +113,7 @@ mod tests {
     #[test]
     fn test_count_hits_2() {
         assert_eq!(
-            count_hits_2(vec![
+            count_hits_2(&vec![
                 "..##.......".to_string(),
                 "#...#...#..".to_string(),
                 ".#....#..#.".to_string(),
