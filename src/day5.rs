@@ -17,7 +17,7 @@ impl day::Day for Day5 {
 
     fn puzzle2(&self) {
         println!("Day 5, puzzle 2");
-// 593 is too high
+
         let my_seat_id = find_my_seat_id(&file::lines("res/day5_1.txt"));
 
         println!("{}", my_seat_id);
