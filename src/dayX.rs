@@ -12,7 +12,7 @@ impl day::Day for DayX {
 
         let result = get_result_1(&file::lines("res/dayX_1.txt"));
 
-        println!("{}", accumulated);
+        println!("{}", result);
     }
 
     fn puzzle2(&self) {

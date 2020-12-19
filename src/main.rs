@@ -15,6 +15,9 @@ mod day6;
 mod day7;
 mod day8;
 mod day9;
+mod day10;
+mod day12;
+mod day13;
 
 fn main() {
     println!("Advent of Code 2020");
@@ -47,6 +50,9 @@ fn get_day (day_select:&str) -> Option<Box<dyn Day>> {
         "day7" => Some(Box::new(day7::Day7 {})),
         "day8" => Some(Box::new(day8::Day8 {})),
         "day9" => Some(Box::new(day9::Day9 {})),
+        "day10" => Some(Box::new(day10::Day10 {})),
+        "day12" => Some(Box::new(day12::Day12 {})),
+        "day13" => Some(Box::new(day13::Day13 {})),
         _ => None,
     }
 }
