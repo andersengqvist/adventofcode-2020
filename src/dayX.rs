@@ -25,11 +25,11 @@ impl day::Day for DayX {
 
 }
 
-fn get_result_1(input: &Vec<String>) -> i32 {
+fn get_result_1(input: &[String]) -> i32 {
     1
 }
 
-fn get_result_2(input: &Vec<String>) -> i32 {
+fn get_result_2(input: &[String]) -> i32 {
     2
 }
 
