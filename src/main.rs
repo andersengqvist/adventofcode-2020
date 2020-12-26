@@ -16,10 +16,12 @@ mod day7;
 mod day8;
 mod day9;
 mod day10;
+mod day11;
 mod day12;
 mod day13;
 mod day14;
 mod day15;
+mod day16;
 mod day17;
 mod day18;
 mod day19;
@@ -56,10 +58,12 @@ fn get_day (day_select:&str) -> Option<Box<dyn Day>> {
         "day8" => Some(Box::new(day8::Day8 {})),
         "day9" => Some(Box::new(day9::Day9 {})),
         "day10" => Some(Box::new(day10::Day10 {})),
+        "day11" => Some(Box::new(day11::Day11 {})),
         "day12" => Some(Box::new(day12::Day12 {})),
         "day13" => Some(Box::new(day13::Day13 {})),
         "day14" => Some(Box::new(day14::Day14 {})),
         "day15" => Some(Box::new(day15::Day15 {})),
+        "day16" => Some(Box::new(day16::Day16 {})),
         "day17" => Some(Box::new(day17::Day17 {})),
         "day18" => Some(Box::new(day18::Day18 {})),
         "day19" => Some(Box::new(day19::Day19 {})),
