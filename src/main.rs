@@ -26,6 +26,7 @@ mod day17;
 mod day18;
 mod day19;
 mod day20;
+mod day21;
 mod day22;
 mod day23;
 mod day24;
@@ -72,6 +73,7 @@ fn get_day (day_select:&str) -> Option<Box<dyn Day>> {
         "day18" => Some(Box::new(day18::Day18 {})),
         "day19" => Some(Box::new(day19::Day19 {})),
         "day20" => Some(Box::new(day20::Day20 {})),
+        "day21" => Some(Box::new(day21::Day21 {})),
         "day22" => Some(Box::new(day22::Day22 {})),
         "day23" => Some(Box::new(day23::Day23 {})),
         "day24" => Some(Box::new(day24::Day24 {})),
